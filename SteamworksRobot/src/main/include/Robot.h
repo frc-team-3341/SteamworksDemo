@@ -17,11 +17,13 @@
 #include "Subsystems/ExampleSubsystem.h"
 #include "Subsystems/Shooter.h"
 #include "Subsystems/Winch.h"
+#include "Subsystems/DriveTrain.h"
 
 class Robot : public frc::TimedRobot {
  public:
   static Shooter* shoot;
   static Winch* winch;
+  static DriveTrain* drive;
   static ExampleSubsystem m_subsystem;
   static OI* m_oi;
 

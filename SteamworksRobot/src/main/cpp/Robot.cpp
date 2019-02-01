@@ -12,6 +12,7 @@
 
 Shooter* Robot::shoot = nullptr;
 Winch* Robot::winch = nullptr;
+DriveTrain* Robot::drive = nullptr;
 ExampleSubsystem Robot::m_subsystem;
 OI* Robot::m_oi = nullptr;
 
@@ -22,6 +23,7 @@ void Robot::RobotInit() {
   
   shoot = new Shooter();
   winch = new Winch();
+  drive = new DriveTrain();
   m_oi = new OI();
 }
 

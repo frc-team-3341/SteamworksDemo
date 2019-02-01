@@ -6,20 +6,15 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
-#include "WPILib.h"
 
-class OI {
- private:
-  Joystick* mechStick;
-  Joystick* driveStick;
+#include <Commands/Command.h>
 
-  Button* shootBall10;
-  Button* turnGate;
-  Button* shootBall5;
-  Button* shootBall7;
-
+class ArcadeDrive : public frc::Command {
  public:
-  OI();
-  Joystick* getMechStick();
-  Joystick* getDriveStick();
+  ArcadeDrive();
+  void Initialize() override;
+  void Execute() override;
+  bool IsFinished() override;
+  void End() override;
+  void Interrupted() override;
 };

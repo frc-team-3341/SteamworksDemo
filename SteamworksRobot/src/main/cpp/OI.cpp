@@ -12,7 +12,7 @@
 #include "Commands/MoveGate.h"
 #include "Commands/ExampleCommand.h"
 
-OI::OI() : mechStick(new Joystick(0)), leftStick(new Joystick(1)), rightStick(new Joystick(2)), shootBall10(new JoystickButton(mechStick, 11)), 
+OI::OI() : mechStick(new Joystick(0)), driveStick(new Joystick(1)), shootBall10(new JoystickButton(mechStick, 11)), 
 turnGate(new JoystickButton(mechStick, 7)), 
 shootBall5(new JoystickButton(mechStick, 9)),
 shootBall7(new JoystickButton(mechStick, 10)) {
@@ -32,12 +32,8 @@ Joystick* OI::getMechStick()
   return mechStick;
 }
 
-Joystick* OI::getLeftStick()
+Joystick* OI::getDriveStick()
 {
-  return leftStick;
+  return driveStick;
 }
 
-Joystick* OI::getRightStick()
-{
-  return rightStick;
-}

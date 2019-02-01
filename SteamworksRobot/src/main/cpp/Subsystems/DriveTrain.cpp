@@ -5,26 +5,23 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "Subsystems/Winch.h"
-#include "Commands/WinchControl.h"
+#include "Subsystems/DriveTrain.h"
+#include "Commands/ArcadeDrive.h"
 
-Winch::Winch() : Subsystem("ExampleSubsystem"), winch(new TalonSRX(1)) {}
+DriveTrain::DriveTrain() : Subsystem("ExampleSubsystem"), left(new Talon(0)), right(new Talon(1)),
+ chassis(new RobotDrive(left, right)) {
+   
+ }
 
-void Winch::InitDefaultCommand() {
+void DriveTrain::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
-  SetDefaultCommand(new WinchControl());
+  SetDefaultCommand(new ArcadeDrive());
 }
 
-void Winch::moveWinch(double power)
+void DriveTrain::arcadeDrive(double move, double rotate)
 {
-  winch->Set(ControlMode::PercentOutput, power);
+  chassis->ArcadeDrive(move, rotate);
 }
-
-TalonSRX* Winch::getWinch()
-{
-  return winch;
-}
-
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

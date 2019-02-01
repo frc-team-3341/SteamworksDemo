@@ -6,20 +6,19 @@
 /*----------------------------------------------------------------------------*/
 
 #pragma once
+
 #include "WPILib.h"
+#include <Commands/Subsystem.h>
 
-class OI {
+class DriveTrain : public frc::Subsystem {
  private:
-  Joystick* mechStick;
-  Joystick* driveStick;
-
-  Button* shootBall10;
-  Button* turnGate;
-  Button* shootBall5;
-  Button* shootBall7;
-
+  // It's desirable that everything possible under private except
+  // for methods that implement subsystem capabilities
+Talon* left;
+Talon* right;
+RobotDrive* chassis;
  public:
-  OI();
-  Joystick* getMechStick();
-  Joystick* getDriveStick();
+  DriveTrain();
+  void InitDefaultCommand() override;
+  void arcadeDrive(double move, double rotate);
 };

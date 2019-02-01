@@ -6,7 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 #include "Subsystems/Shooter.h"
-#include "Commands/ExampleCommand.h"
+#include "Commands/SetShooter.h"
 #include <iostream>
 
 Shooter::Shooter() : Subsystem("ExampleSubsystem"), wheel(new TalonSRX(2)), gate(new Servo(2))
@@ -18,7 +18,7 @@ Shooter::Shooter() : Subsystem("ExampleSubsystem"), wheel(new TalonSRX(2)), gate
 void Shooter::InitDefaultCommand() {
   // Set the default command for a subsystem here.
   // SetDefaultCommand(new MySpecialCommand());
-  SetDefaultCommand(new ExampleCommand());
+  SetDefaultCommand(new SetShooter(0));
 }
 
 void Shooter::setPower(double power)
