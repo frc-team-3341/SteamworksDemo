@@ -19,7 +19,7 @@ void ArcadeDrive::Initialize() {}
 
 // Called repeatedly when this Command is scheduled to run
 void ArcadeDrive::Execute() {
-  Robot::drive->arcadeDrive(Robot::m_oi->getDriveStick()->GetY(), Robot::m_oi->getDriveStick()->GetZ());
+  Robot::drive->arcadeDrive(Robot::m_oi->getDriveStick()->GetY()*0.6, Robot::m_oi->getDriveStick()->GetZ()*0.6);
 }
 
 // Make this return true when this Command no longer needs to run execute()
